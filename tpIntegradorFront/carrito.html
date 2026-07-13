@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Carrito - Mundial 2026 Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="carrito.js" defer></script>
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <header>
+        <img id="icono-principal" src="assets/img/AFA-SHOP_LOGO.webp" alt="Logo AFA" />
+        <nav id="listado-opciones">
+            <a href="productos.html">INICIO</a>
+            <a href="index.html#camisetas">CAMISETAS</a>
+            <a href="index.html#gorras">GORRAS</a>
+            <a href="carrito.html">CARRITO</a>
+        </nav>
+    </header>
+
+    <main class="carrito-seccion">
+        <h2>Tu Carrito</h2>
+        
+        <!-- Contenedor donde JS va a meter los productos del carrito -->
+        <div id="contenedor-carrito-items"></div>
+
+        <!-- Resumen de la compra -->
+        <div id="resumen-carrito">
+            <h3>Total: $<span id="precio-total">0</span></h3>
+            <button id="btn-vaciar" onclick="vaciarCarrito()">Vaciar Carrito</button>
+            <button id="btn-comprar">Finalizar Compra</button>
+        </div>
+    </main>
+</body>
+</html>

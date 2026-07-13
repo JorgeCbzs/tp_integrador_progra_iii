@@ -1,0 +1,427 @@
+/* ==========================================================================
+   1. VARIABLES Y RESET
+   ========================================================================== */
+:root {
+    /* Mensajes de sistema (mantengo los tuyos) */
+    --msg-error-bg: #f8d7da;
+    --msg-error-color: #58151c;
+    --msg-error-border: #f1aeb5;
+    --msg-exito-bg: #d1e7dd;
+    --msg-exito-color: #0a3622;
+    --msg-exito-border: #a3cfbb;
+    
+    /* Colores del nuevo diseño */
+    --color-primario: #0D4D97;
+    --color-texto: #3f3f40;
+    --color-fondo: #f4f4f4;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    display: flex;
+    flex-direction: column;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVEGACIÓN
+   ========================================================================== */
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    border-bottom: var(--color-primario) 5px solid;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    height: 80px; 
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 100%;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+.enlaces {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 20px;
+    font-weight: bold;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+}
+
+.enlaces a {
+    color: var(--color-texto);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.enlaces a:hover {
+    color: var(--color-primario);
+}
+
+/* ==========================================================================
+   3. CONTENEDOR DE PRODUCTOS (FLEXBOX)
+   ========================================================================== */
+#contenedor-productos {
+    display: flex;
+    flex-wrap: wrap;       
+    justify-content: center; 
+    gap: 24px;             
+    min-height: 200px;
+    width: 100%;
+    padding: 40px 20px;
+}
+
+#contenedor-productos ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-left: 0;
+}
+
+/* ==========================================================================
+   4. TARJETAS DE PRODUCTOS (GRID/CARDS)
+   ========================================================================== */
+.card-producto {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 220px;
+    border: none; /* Se elimina el borde rosa rígido */
+    transition: transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Sombra muy sutil para despegar del fondo gris */
+}
+
+.card-producto:hover {
+    transform: translateY(-5px);
+}
+
+.card-producto img {
+    max-width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.card-producto h4 {
+    font-size: 16px;
+    color: var(--color-texto);
+    margin: 15px 0 5px 0;
+}
+
+.card-producto p {
+    color: var(--color-primario);
+    margin: 5px 0;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* ==========================================================================
+   5. LISTA DE PRODUCTO (VISTA LINEAL/ADMINISTRADOR)
+   ========================================================================== */
+.lista-producto {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    justify-content: space-between; 
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.lista-producto img {
+    height: 70px;
+    width: 70px;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.lista-producto p {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-texto);
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   6. FORMULARIO DE ALTA Y BOTONES
+   ========================================================================== */
+.form-alta {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    margin: 40px auto; 
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#deleteProduct-button {
+    background-color: transparent;
+    color: #d9534f;
+    border: 2px solid #d9534f;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    margin-bottom: 0;
+}
+
+#deleteProduct-button:hover {
+    background-color: #d9534f;
+    color: white;
+}
+
+/* ==========================================================================
+   7. MENSAJES DE ESTADO
+   ========================================================================== */
+.mensaje {
+    border-radius: 6px;
+    margin-top: 20px;
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.mensaje-error {
+    color: var(--msg-error-color);
+    background-color: var(--msg-error-bg);
+    border: 1px solid var(--msg-error-border);
+}
+
+.mensaje-exito {
+    color: var(--msg-exito-color);
+    background-color: var(--msg-exito-bg);
+    border: 1px solid var(--msg-exito-border);
+}
+
+
+/* ==========================================================================
+   8. ESTILOS DE DASHBOARD (FORMULARIOS Y SECCIONES)
+   ========================================================================== */
+
+/* Contenedor principal para centrar el contenido */
+main {
+    flex: 1; /* Permite que empuje el footer hacia abajo */
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Títulos de las vistas */
+.form-productos h2,
+.secccion-productos h2 {
+    color: var(--color-primario);
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+/* Contenedores de las distintas áreas */
+.form-productos,
+.secccion-productos {
+    width: 100%;
+    max-width: 600px; /* Mantiene los formularios legibles y centrados */
+    margin-bottom: 30px;
+}
+
+.secccion-productos {
+    max-width: 1000px; /* Da más espacio si hay una grilla de productos */
+}
+
+/* Separador horizontal */
+.secccion-productos hr {
+    border: 0;
+    height: 1px;
+    background: #dcdcdc;
+    margin: 20px 0 40px 0;
+}
+
+/* Cajas de los formularios (Consultar, Crear, Editar) */
+#getProduct-form,
+#postProduct-form,
+#contenedor-form form {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Etiquetas (Labels) */
+.form-productos label,
+#contenedor-form label {
+    font-weight: bold;
+    color: var(--color-texto);
+    margin-bottom: -5px; /* Acerca la etiqueta al input */
+    font-size: 14px;
+}
+
+/* Campos de entrada (Inputs y Selects) */
+.form-productos input:not([type="submit"]),
+.form-productos select,
+#contenedor-form input:not([type="submit"]),
+#contenedor-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: var(--color-texto);
+    font-family: inherit;
+    background-color: #fafafa;
+    transition: all 0.2s ease;
+}
+
+/* Efecto al hacer clic/escribir en un input */
+.form-productos input:not([type="submit"]):focus,
+.form-productos select:focus,
+#contenedor-form input:not([type="submit"]):focus,
+#contenedor-form select:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(13, 77, 151, 0.1);
+}
+
+/* Botones de Envío (Consultar, Crear, etc.) */
+.form-productos input[type="submit"],
+#contenedor-form input[type="submit"] {
+    background: var(--color-primario);
+    color: white;
+    border: none;
+    padding: 14px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+/* Efecto hover en botones de envío */
+.form-productos input[type="submit"]:hover,
+#contenedor-form input[type="submit"]:hover {
+    background: #0a3a71;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   9. VISTA DE LOGIN
+   ========================================================================== */
+
+/* Título de la pantalla de Login */
+.texto-login {
+    color: var(--color-primario);
+    text-align: center;
+    font-size: 28px;
+    margin-top: 60px; /* Le da aire desde el borde superior de la pantalla */
+    margin-bottom: 20px;
+}
+
+/* Estilos de las etiquetas (Labels) dentro del formulario de Login */
+.form-alta label {
+    font-weight: bold;
+    color: var(--color-texto);
+    margin-bottom: 5px;
+    margin-top: 15px; /* Espaciado entre el input anterior y el nuevo label */
+    font-size: 14px;
+    display: block; /* Asegura que la etiqueta tome su propia línea */
+}
+
+/* Evita el margen superior en el primer label para que quede alineado */
+.form-alta label:first-of-type {
+    margin-top: 0;
+}
+
+/* Inputs de texto, email y password */
+.form-alta input:not([type="submit"]) {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: var(--color-texto);
+    font-family: inherit;
+    background-color: #fafafa;
+    transition: all 0.2s ease;
+}
+
+/* Efecto al seleccionar el input de login */
+.form-alta input:not([type="submit"]):focus {
+    outline: none;
+    border-color: var(--color-primario);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(13, 77, 151, 0.1);
+}
+
+/* Botón de Submit (Login) */
+.form-alta input[type="submit"] {
+    background: var(--color-primario);
+    color: white;
+    border: none;
+    padding: 14px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+/* Efecto hover del botón de Login */
+.form-alta input[type="submit"]:hover {
+    background: #0a3a71;
+    transform: translateY(-2px);
+}
+
+/* Ajuste fino para centrar el mensaje de error debajo del formulario de login */
+.mensaje {
+    max-width: 500px; /* Mismo ancho que .form-alta */
+    margin: 0 auto 40px auto;
+}

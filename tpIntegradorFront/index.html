@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - AFA Store</title>
+    <!-- Vinculamos tu archivo de estilos -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Contenedor principal centrado -->
+    <div class="login-wrapper">
+        <div class="login-card">
+            <h3>Iniciar Sesión</h3>
+            <input type="text" id="nombre-usuario" placeholder="Ingresá tu nombre" required>
+            <button id="btn-login">Ingresar</button>
+        </div>
+    </div>
+
+    <!-- Script de lógica de sesión -->
+    <script>
+        document.getElementById('btn-login').addEventListener('click', () => {
+            const nombre = document.getElementById('nombre-usuario').value;
+            
+            if (nombre.trim() !== "") {
+                // Guardamos el nombre en sessionStorage
+                sessionStorage.setItem("nombre-cliente", nombre.trim());
+                
+                // Redirigimos a la página principal de productos
+                window.location.href = "productos.html"; 
+            } else {
+                alert("Por favor, ingresá un nombre válido.");
+            }
+        });
+
+        // Opcional: Permitir que el usuario presione "Enter" para ingresar
+        document.getElementById('nombre-usuario').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                document.getElementById('btn-login').click();
+            }
+        });
+    </script>
+
+</body>
+</html>

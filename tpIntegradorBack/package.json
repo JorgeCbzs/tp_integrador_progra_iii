@@ -1,0 +1,24 @@
+{
+  "name": "6_tpintegradorback",
+  "version": "1.0.0",
+  "description": "1. Crear endpoints minimos e consumilos dende o cliente 2. Optimizar endpoints 3. Consumir dende front e crear middlewares 4. Refactorizacion e MVC. Modularizar con router, middlewares, controladores e modelos 5. Setup e renderizado con EJS",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "mysql2": "^3.22.4",
+    "nodemon": "^3.1.14"
+  }
+}

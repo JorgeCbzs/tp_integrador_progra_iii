@@ -1,0 +1,500 @@
+/* ==========================================================================
+   1. RESET Y ESTRUCTURA BASE
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f4f4f4;
+    color: #3f3f40;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVEGACIÓN
+   ========================================================================== */
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    border-bottom: #0D4D97 5px solid;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+}
+
+#icono-principal {
+    height: 80px; /* Alto fijo para controlar que el logo no se deforme */
+    width: auto;
+}
+
+#listado-opciones {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: space-around;
+    height: 100px;
+    font-size: 20px;
+    font-weight: bold;
+    flex-wrap: wrap;
+}
+
+#listado-opciones a {
+    color: #3f3f40;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+#listado-opciones a:hover {
+    color: #0D4D97; /* Efecto visual cuando pasás el mouse */
+}
+
+/* ==========================================================================
+   3. SECCIONES Y CONTENEDORES DE PRODUCTOS (FLEXBOX)
+   ========================================================================== */
+.seccion-categoria {
+    padding: 40px 20px 20px 20px;
+}
+
+.seccion-categoria h2 {
+    color: #0D4D97;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.contenedor-productos {
+    display: flex;
+    flex-wrap: wrap;       /* Clave: las tarjetas bajan si no entran */
+    justify-content: center; /* Centra el bloque de tarjetas */
+    gap: 24px;             /* Separación limpia entre tarjetas */
+    min-height: 200px;
+    width: 100%;
+}
+
+/* ==========================================================================
+   4. TARJETAS DE PRODUCTOS (CARDS)
+   ========================================================================== */
+.card-producto {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 220px; /* Un poquito más de aire para el diseño */
+    /* transition: transform 0.2s ease; */
+}
+
+.card-producto:hover {
+    transform: translateY(-5px); /* Efecto sutil de elevación */
+}
+
+.card-producto img {
+    max-width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.card-producto h3 {
+    font-size: 16px;
+    margin: 15px 0 5px 0;
+}
+
+.card-producto p {
+    color: #0D4D97;
+    margin: 5px 0;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.btn-agregar {
+    background: #0D4D97;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.2s ease;
+}
+
+.btn-agregar:hover {
+    background: #0a3a71; /* Se oscurece al pasar el mouse */
+}
+
+/* Contenedor que agrupa las dos flechas y los productos en una sola línea */
+.carrusel-contenedor {
+    display: flex;
+    align-items: center;  /* Centra las flechas verticalmente respecto a las tarjetas */
+    justify-content: center;
+    gap: 15px;            /* Espacio entre las flechas y las tarjetas */
+    width: 100%;
+    max-width: 1600px;    /* Ajustalo según el ancho máximo que quieras */
+    margin: 0 auto;
+}
+
+/* Estilo para los botones tipo flecha redonda */
+.btn-flecha-carrusel {
+    background-color: white;
+    color: #3f3f40;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;   /* Los hace completamente redondos */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;       /* Evita que la flecha se aplaste si la pantalla es chica */
+}
+
+.btn-flecha-carrusel:hover {
+    background-color: #f4f4f4;
+    transform: scale(1.1); /* Efecto de agrandado sutil */
+}
+
+.btn-flecha-carrusel:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+}
+/* ==========================================================================
+   5. PAGINACIÓN Y FOOTER
+   ========================================================================== */
+.paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+    gap: 15px;
+}
+
+.btn-pag {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background: white;
+    border-radius: 5px;
+}
+
+.btn-pag:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#info-pagina {
+    font-weight: bold;
+}
+
+footer {
+    height: 420px;
+    background-color: #0D4D97;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto; /* Empuja el footer al fondo si hay poco contenido */
+}
+
+#icon-footer {
+    height: 60px;
+    width: auto;
+}
+
+
+
+/* ==========================================================================
+   6. CARRITO DE COMPRAS
+   ========================================================================== */
+
+/* Contenedor principal del carrito */
+.carrito-seccion {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+    flex: 1; /* Permite que el footer siempre quede pegado abajo si el carrito está vacío */
+}
+
+.carrito-seccion h2 {
+    color: #0D4D97; /* Mismo azul que las categorías de inicio */
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+/* Estilo para cada producto agregado (como una barra horizontal) */
+.carrito-item {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 15px 20px;
+    border-radius: 8px; /* Mismos bordes que tus card-producto */
+    margin-bottom: 15px;
+    justify-content: space-between;
+}
+
+.carrito-item img {
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+/* Información del nombre y precio */
+.item-info {
+    flex: 1;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.item-info h4 {
+    font-size: 18px;
+    color: #3f3f40;
+    margin: 0;
+}
+
+.item-info p {
+    color: #0D4D97; /* Destacamos el precio en azul igual que en el index */
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0;
+}
+
+/* Botones de sumar y restar cantidad */
+.item-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.item-cantidad button {
+    background: #f4f4f4; /* Mismo gris que el fondo del body */
+    border: 1px solid #ccc;
+    border-radius: 50%; /* Botones redondos como las flechas del carrusel */
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #3f3f40;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2s ease;
+}
+
+.item-cantidad button:hover {
+    background: #e0e0e0;
+}
+
+.item-cantidad span {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Botón rojo para eliminar el producto */
+.btn-eliminar {
+    background-color: transparent;
+    color: #d9534f;
+    border: 2px solid #d9534f;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.btn-eliminar:hover {
+    background-color: #d9534f;
+    color: white;
+}
+
+/* Mensaje cuando no hay nada */
+.carrito-vacio {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #3f3f40;
+    margin: 50px 0;
+}
+
+/* ==========================================================================
+   7. RESUMEN DEL CARRITO (TOTAL Y COMPRA)
+   ========================================================================== */
+#resumen-carrito {
+    background: white;
+    padding: 20px 25px;
+    border-radius: 8px;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#resumen-carrito h3 {
+    font-size: 24px;
+    color: #0D4D97;
+    margin: 0;
+}
+
+#resumen-carrito button {
+    padding: 12px 25px;
+    border-radius: 5px; /* Mismo radio que tus botones .btn-agregar */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#btn-vaciar {
+    background: transparent;
+    border: 2px solid #3f3f40;
+    color: #3f3f40;
+    margin-left: auto; /* Empuja los botones hacia la derecha */
+    margin-right: 15px;
+}
+
+#btn-vaciar:hover {
+    background: #3f3f40;
+    color: white;
+}
+
+#btn-comprar {
+    background: #0D4D97; /* Mismo estilo que el btn-agregar principal */
+    color: white;
+    border: none;
+}
+
+#btn-comprar:hover {
+    background: #0a3a71;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   8. RESPONSIVE (CELULARES)
+   ========================================================================== */
+@media (max-width: 600px) {
+    .carrito-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .item-info {
+        margin-left: 0;
+        align-items: center;
+    }
+    
+    .btn-eliminar {
+        width: 100%;
+    }
+
+    #resumen-carrito {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    #resumen-carrito h3 {
+        margin-bottom: 10px;
+    }
+
+    #btn-vaciar {
+        margin: 0;
+        width: 100%;
+    }
+
+    #btn-comprar {
+        width: 100%;
+    }
+}
+
+/* ==========================================================================
+   FRONT LOGIN
+   ========================================================================== */
+
+/* Contenedor para centrar la tarjeta en la pantalla vacía */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    background-color: #f4f4f4; 
+    padding: 20px;
+}
+
+/* La tarjeta blanca principal */
+.login-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 8px; 
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 350px;
+}
+
+.login-card h3 {
+    color: #0D4D97; 
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/* Estilo del campo de texto */
+#nombre-usuario {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #3f3f40;
+    margin-bottom: 20px;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+}
+
+
+/* Mismo estilo que tu .btn-agregar */
+#btn-login {
+    background: #0D4D97;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Efecto hover idéntico a tus otros botones */
+#btn-login:hover {
+    background: #0a3a71;
+    transform: translateY(-2px); 
+}
