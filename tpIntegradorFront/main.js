@@ -81,7 +81,6 @@ window.agregarAlCarrito = function(id, nombre, precio, imagen) {
 
     // Guardamos en el almacenamiento local para que 'carrito.html' lo levante
     localStorage.setItem('carrito-mundial', JSON.stringify(carrito));
-    alert(`¡${nombre} agregado al carrito!`);
 };
 
 // 4. Al iniciar la web, cargamos las categorías

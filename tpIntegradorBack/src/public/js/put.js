@@ -34,14 +34,7 @@ getProductForm.addEventListener("submit", async event => {
         const producto = datos.payload;
 
         console.log(producto); 
-        /* {
-            "id": 41,
-            "name": "Fernet Cola Chabona",
-            "image": "https://pointlaventanita.com/wp-content/uploads/2024/05/chabona.webp",
-            "category": "drink",
-            "price": "4300.00",
-            "active": 1
-        }*/
+        
 
         renderizarProducto(producto);
 

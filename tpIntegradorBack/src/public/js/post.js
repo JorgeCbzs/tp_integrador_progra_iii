@@ -91,12 +91,6 @@ postProductForm.addEventListener("submit", async event => {
     /*
     FormData(4) { name → "Fernet Branca", image → "https://http2.mlstatic.com/D_Q_NP_2X_685551-MLA99433693010_112025-E.webp", category → "drink", price → "17000" }
 
-    Las entries del FormData son:
-        0: name → "Fernet Branca"
-        1: image → "https://http2.mlstatic.com/D_Q_NP_2X_685551-MLA99433693010_112025-E.webp"
-        2: category → "drink"​
-        3: price → "17000"
-    */
 
    // Transformamos este objeto nativo en un objeto JavaScript normal
    const data = Object.fromEntries(formData.entries());

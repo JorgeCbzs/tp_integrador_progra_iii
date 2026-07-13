@@ -21,9 +21,7 @@ getProductForm.addEventListener("submit", async event => {
         // Vamos a hacer el fetch a una URL personalizada
         const response = await fetch(`${urlBase}/${idProd}`);
         console.log(response);
-        /*
-        Response {type: 'cors', url: 'http://localhost:3000/api/products/2', redirected: false, status: 404, ok: false, …}
-        */
+        
 
         // Procesamos los datos que devuelve el servidor
         const datos = await response.json();
@@ -37,14 +35,7 @@ getProductForm.addEventListener("submit", async event => {
         const producto = datos.payload;
 
         console.log(producto); 
-        /* {
-            "id": 41,
-            "name": "Fernet Cola Chabona",
-            "image": "https://pointlaventanita.com/wp-content/uploads/2024/05/chabona.webp",
-            "category": "drink",
-            "price": "4300.00",
-            "active": 1
-        }*/
+    
 
         renderizarProducto(producto);
 
